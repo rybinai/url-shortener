@@ -4,14 +4,20 @@ go 1.25.0
 
 require (
 	github.com/jackc/pgx/v5 v5.7.6
+	github.com/spf13/cobra v1.10.1
 	google.golang.org/grpc v1.77.0
 	google.golang.org/protobuf v1.36.10
 )
 
 require (
+	github.com/Masterminds/squirrel v1.5.4 // indirect
+	github.com/inconshreveable/mousetrap v1.1.0 // indirect
 	github.com/jackc/pgpassfile v1.0.0 // indirect
 	github.com/jackc/pgservicefile v0.0.0-20240606120523-5a60cdf6a761 // indirect
 	github.com/jackc/puddle/v2 v2.2.2 // indirect
+	github.com/lann/builder v0.0.0-20180802200727-47ae307949d0 // indirect
+	github.com/lann/ps v0.0.0-20150810152359-62de8c46ede0 // indirect
+	github.com/spf13/pflag v1.0.10 // indirect
 	golang.org/x/crypto v0.43.0 // indirect
 	golang.org/x/net v0.46.1-0.20251013234738-63d1a5100f82 // indirect
 	golang.org/x/sync v0.17.0 // indirect

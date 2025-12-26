@@ -1,25 +1,55 @@
-## Url-shortener
+# URL Shortener
 
-### Запуск базы данных
-docker-compose up -d postgres
+Сервис для сокращения URL-адресов на основе gRPC и PostgreSQL
 
-### Остановка базы данных
-docker-compose down
+## Архитектура
 
-### Запуск сервера 
-go run cmd/server/main.go
+- **gRPC сервер** на порту 8080
+- **PostgreSQL** база данных на порту 5432
+- **Docker Compose** для запуска всех компонентов
 
-### Создать короткую ссылку
-go run cmd/client/main.go create https://google.com
+## Требования к запуску 
 
-### Получить оригинальный URL
-go run cmd/client/main.go get abc123
+- Docker и Docker Compose
+- Go 1.25.0
 
-### Просмотр всех данных в БД
-docker-compose exec postgres psql -U user -d urlshortener -c "SELECT * FROM urlshortener;"
+## Установка и запуск
 
-#### Порт сервера 
-8080
+### Запуск сервера
+```bash
+# Запустить контейнеры
+./run.sh up
 
-#### Порт БД
-5432
+# Пересобрать и запустить
+./run.sh build
+
+# Остановить контейнеры
+./run.sh down
+```
+
+## Использование
+
+### Создание короткой ссылки
+```bash
+./run.sh create 
+```
+
+Пример:
+```bash
+./run.sh create https://example.com
+```
+
+### Получение оригинальной ссылки
+```bash
+./run.sh get 
+```
+
+Пример:
+```bash
+./run.sh get aBcDeF
+```
+
+### Проверка содержимого базы данных
+```bash
+./run.sh check-db
+```

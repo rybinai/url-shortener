@@ -7,17 +7,21 @@ import (
 	"time"
 
 	"github.com/jackc/pgx/v5/pgxpool"
-	"github.com/rybinai/url-shortener/internal/server"
 	"github.com/rybinai/url-shortener/internal/storage"
+	"github.com/rybinai/url-shortener/server"
 	"github.com/rybinai/url-shortener/shortener"
 	"google.golang.org/grpc"
+)
+
+const (
+	postgresAddress = "postgresql://user:password@postgres:5432/urlshortener"
 )
 
 func main() {
 	ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
 	defer cancel()
 
-	db, err := pgxpool.New(ctx, "postgresql://user:password@localhost:5432/urlshortener")
+	db, err := pgxpool.New(ctx, postgresAddress)
 	if err != nil {
 		log.Fatal("Failed to connect to database:", err)
 	}
